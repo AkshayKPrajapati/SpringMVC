@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+<style>
+    body {
+        background-color: #f2f2f2;
+        font-family: Verdana, sans-serif;
+        text-align: center;
+        margin-top: 80px;
+    }
+    h1 {
+        color: #333;
+    }
+    form {
+        background-color: white;
+        display: inline-block;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #aaa;
+    }
+    input[type=text], input[type=password] {
+        width: 250px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type=submit] {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type=submit]:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <form action="LoginServlet" method="post">
+        <input type="text" name="username" placeholder="Enter Username" required><br>
+        <input type="password" name="password" placeholder="Enter Password" required><br>
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="register.jsp">Register Here</a></p>
+</body>
+</html>

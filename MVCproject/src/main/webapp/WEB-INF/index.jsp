@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="com.mvc.model.Student" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,14 +23,12 @@
     }
     a {
         display: block;
-        margin: 15px;
+        margin: 15px auto;
         padding: 12px;
         background-color: #007bff;
         color: white;
         text-decoration: none;
         width: 250px;
-        margin-left: auto;
-        margin-right: auto;
         border-radius: 8px;
         transition: 0.3s;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -46,12 +45,32 @@
 </style>
 </head>
 <body>
-    <h1>Welcome to Fusion Software Institute</h1>
-    <h2>This is the Index Page</h2>
 
-    <a href="login.jsp">Go to Login Page</a>
-    <a href="register.jsp">Create a New Account</a>
+<%
+    // Safely retrieve attributes to avoid NullPointerExceptions
+    String name = (String) request.getAttribute("name");
+    Integer visitor = (Integer) request.getAttribute("visitor");
+    Student student = (Student) request.getAttribute("studentData");
 
-    <footer>Class by Geetanjali Ma’am</footer>
+    // Set defaults if attributes are missing
+    if (name == null) name = "Instructor";
+    if (visitor == null) visitor = 0;
+%>
+
+<h1>Welcome to Fusion Software Institute</h1>
+
+<% if (student != null) { %>
+    <h2>Hello, <%= student.getName() %> | Registration Number: <%= student.getRegisterId() %></h2>
+<% } else { %>
+    <h2>Welcome, Guest! Please login or register below.</h2>
+<% } %>
+
+<a href="login">Go to Login Page</a>
+<a href="register">Create a New Account</a>
+
+<footer>
+    Class by <%= name %> | Visitor Count: <%= visitor %> +
+</footer>
+
 </body>
 </html>

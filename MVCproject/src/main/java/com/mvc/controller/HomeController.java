@@ -1,13 +1,19 @@
 package com.mvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.mvc.model.Student;
 
 @Controller
 public class HomeController {
 	
 	@RequestMapping(path="/")
-	public String getIndx(){
+	public String getIndx(Model model){
+		model.addAttribute("name","Geetanjali Ma'am");
+		model.addAttribute("visitor", 13408);
+		model.addAttribute("studentData", new Student(101,"Akshay","FISJFS01625"));
 		return "index";
 	}
 	

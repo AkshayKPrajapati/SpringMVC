@@ -49,6 +49,6 @@
         <input type="password" name="password" placeholder="Enter Password" required><br>
         <input type="submit" value="Login">
     </form>
-    <p>Don't have an account? <a href="register.jsp">Register Here</a></p>
+    <p>Don't have an account? <a href="register">Register Here</a></p>
 </body>
 </html>

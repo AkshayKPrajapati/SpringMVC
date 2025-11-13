@@ -1,0 +1,26 @@
+package com.mvc.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController {
+	
+	@RequestMapping(path="/")
+	public String getIndx(Model model){
+		model.addAttribute("name","Geetanjali Ma'am");
+		model.addAttribute("visitor", 13408);
+		return "index";
+	}
+	
+	@RequestMapping("/login")
+	public String getLogin(){
+		return "login";
+	}
+	
+	@RequestMapping("/register")
+	public String getRegister(){
+		return "register";
+	}
+}
