@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+   <%@ page  import="com.mvc.model.Login"  %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,5 +10,10 @@
 </head>
 <body>
 <p>Success</p>
+<%
+Login loginData= (Login) request.getAttribute("login");
+%>
+
+Username : <%=loginData.getUsername() %>
 </body>
 </html>

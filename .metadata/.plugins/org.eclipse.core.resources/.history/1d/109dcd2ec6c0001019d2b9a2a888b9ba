@@ -91,15 +91,9 @@ public class HomeController {
      * 
      */
     @RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
-    public String loginSuccess(@ModelAttribute Login login,Model model){
+    public String loginSuccess(@ModelAttribute Login login){
     	System.out.println(" The username is :  "+ login.getUsername());
     	System.out.println(" The password is :  "+ login.getPassword());
-    	
-    	// sent the data on view page
-    	model.addAttribute("login", login);
-    	
-    	
-    	
     	return "loginSucess";
     	
     }

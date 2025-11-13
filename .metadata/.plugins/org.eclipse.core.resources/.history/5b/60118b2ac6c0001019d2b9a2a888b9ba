@@ -14,6 +14,6 @@
 Login loginData= (Login) request.getAttribute("login");
 %>
 
-Username : <%=loginData.getUsername() %>
+<%=loginData.getUsername() %>
 </body>
 </html>

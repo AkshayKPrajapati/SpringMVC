@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mvc.model.Login;
 import com.mvc.model.Student;
 
 @Controller
@@ -62,18 +61,14 @@ public class HomeController {
     
     
     
-    //How to send data from view to controller using @RequestParam and @ModelAttribute 
+    //How to send data from view to controller using @@RequestParam and 
     @RequestMapping("/login")
     
     public String getLogin() {
         return "login";
     }
     
-    
-    
-    /*
-     * Use Request@RequestParam
-     * @RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
+    @RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
     public String loginSuccess(
     		@RequestParam("username") String username,
     		@RequestParam("password") String password
@@ -83,26 +78,7 @@ public class HomeController {
     	return "loginSucess";
     	
     }
-    */
     
-    
-    /*
-     * Using @MethodAttribute
-     * 
-     */
-    @RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
-    public String loginSuccess(@ModelAttribute Login login,Model model){
-    	System.out.println(" The username is :  "+ login.getUsername());
-    	System.out.println(" The password is :  "+ login.getPassword());
-    	
-    	// sent the data on view page
-    	model.addAttribute("login", login);
-    	
-    	
-    	
-    	return "loginSucess";
-    	
-    }
     @RequestMapping("/register")
     public String getRegister() {
         return "register";
