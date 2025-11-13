@@ -1,29 +1,38 @@
 package com.mvc.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.mvc.model.Student;
 
 @Controller
 public class HomeController {
-	
-	@RequestMapping(path="/")
-	public String getIndx(Model model){
-		model.addAttribute("name","Geetanjali Ma'am");
-		model.addAttribute("visitor", 13408);
-		model.addAttribute("studentData", new Student(101,"Akshay","FISJFS01625"));
-		return "index";
-	}
-	
-	@RequestMapping("/login")
-	public String getLogin(){
-		return "login";
-	}
-	
-	@RequestMapping("/register")
-	public String getRegister(){
-		return "register";
-	}
+    
+    @RequestMapping(path="/")
+    public String getIndex(Model model) {
+        model.addAttribute("name", "Geetanjali Ma'am");
+        model.addAttribute("mobile", 6200305994L);
+        model.addAttribute("visitor", 13408);
+        model.addAttribute("studentData", new Student(101, "Akshay", "FISJFS01625"));
+        
+        List<Integer> pincodes = new ArrayList<>();
+        pincodes.add(821654);
+        pincodes.add(821655);
+        pincodes.add(821656);
+        model.addAttribute("pincodes", pincodes);
+        
+        return "index";
+    }
+    
+    @RequestMapping("/login")
+    public String getLogin() {
+        return "login";
+    }
+    
+    @RequestMapping("/register")
+    public String getRegister() {
+        return "register";
+    }
 }

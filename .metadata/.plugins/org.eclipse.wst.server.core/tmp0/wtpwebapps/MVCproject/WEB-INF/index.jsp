@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.mvc.model.Student" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,14 +48,17 @@
 <body>
 
 <%
-    // Safely retrieve attributes to avoid NullPointerExceptions
+    // Retrieve data from request attributes safely
     String name = (String) request.getAttribute("name");
     Integer visitor = (Integer) request.getAttribute("visitor");
     Student student = (Student) request.getAttribute("studentData");
+    Long mobile = (Long) request.getAttribute("mobile");
+    List<Integer> pincodes = (List<Integer>) request.getAttribute("pincodes");
 
-    // Set defaults if attributes are missing
+    // Default values if attributes are missing
     if (name == null) name = "Instructor";
     if (visitor == null) visitor = 0;
+    if (mobile == null) mobile = 1234567890L;
 %>
 
 <h1>Welcome to Fusion Software Institute</h1>
@@ -65,11 +69,29 @@
     <h2>Welcome, Guest! Please login or register below.</h2>
 <% } %>
 
-<a href="login">Go to Login Page</a>
-<a href="register">Create a New Account</a>
+<section>
+    <a href="login">Go to Login Page</a>
+    <a href="register">Create a New Account</a>
+    <a href="controllerView">Controller And View</a>
+</section>
+
+<h3>There are some pincodes below:</h3>
+
+<%
+    if (pincodes != null && !pincodes.isEmpty()) {
+        for (Integer pincode : pincodes) {
+            out.print(pincode + " ");
+        }
+    } else {
+        out.print("No pincodes available.");
+    }
+%>
 
 <footer>
-    Class by <%= name %> | Visitor Count: <%= visitor %> +
+    Class by <%= name %> |
+    Visitor Count: <%= visitor %> + |
+    Mobile: <%= mobile %> |
+    Pincode: <%= (pincodes != null && pincodes.size() > 2) ? pincodes.get(2) : "N/A" %>
 </footer>
 
 </body>
