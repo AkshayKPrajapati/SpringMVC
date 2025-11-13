@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -61,22 +60,16 @@ public class HomeController {
     
     
     
-    //How to send data from view to controller using @@RequestParam and 
+    //How to send data from view to controller using @@RequestParam and @ModelAttribute
     @RequestMapping("/login")
     
-    public String getLogin() {
-        return "login";
-    }
-    
-    @RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
-    public String loginSuccess(
-    		@RequestParam("username") String username,
-    		@RequestParam("password") String password
-    		){
-    	System.out.println(" The username is :  "+ username);
-    	System.out.println(" The password is :  "+ password);
-    	return "loginSucess";
+    public String getLogin(@RequestParam("name"),
+    		@RequestParam("password")	
+    		) {
     	
+    	
+    	
+        return "login";
     }
     
     @RequestMapping("/register")

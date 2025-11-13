@@ -73,8 +73,6 @@ public class HomeController {
     		@RequestParam("username") String username,
     		@RequestParam("password") String password
     		){
-    	System.out.println(" The username is :  "+ username);
-    	System.out.println(" The password is :  "+ password);
     	return "loginSucess";
     	
     }

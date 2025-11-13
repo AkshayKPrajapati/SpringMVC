@@ -69,12 +69,7 @@ public class HomeController {
     }
     
     @RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
-    public String loginSuccess(
-    		@RequestParam("username") String username,
-    		@RequestParam("password") String password
-    		){
-    	System.out.println(" The username is :  "+ username);
-    	System.out.println(" The password is :  "+ password);
+    public String loginSuccess(){
     	return "loginSucess";
     	
     }

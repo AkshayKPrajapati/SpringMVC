@@ -44,7 +44,7 @@
 </head>
 <body>
     <h1>Login Page</h1>
-    <form action="loginSuccess" method="post">
+    <form action="LoginServlet" method="post">
         <input type="text" name="username" placeholder="Enter Username" required><br>
         <input type="password" name="password" placeholder="Enter Password" required><br>
         <input type="submit" value="Login">
