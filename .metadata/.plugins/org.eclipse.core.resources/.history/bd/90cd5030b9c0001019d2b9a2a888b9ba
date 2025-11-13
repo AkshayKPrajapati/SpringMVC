@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Model View Example</title>
+</head>
+<body>
+    <h2>Use of ModelAndView</h2>
+    
+    <h3>Basic Data:</h3>
+    Name: ${name} <br>
+    Mobile: ${mobile} <br><br>
+
+    <h3>Student Data:</h3>
+    ID: ${studentData.id} <br>
+    Name: ${studentData.name} <br>
+    Roll Number: ${studentData.rollNumber} <br><br>
+
+    <h3>Pincodes:</h3>
+    <ul>
+        <c:forEach var="pincode" items="${pincodes}">
+            <li>${pincode}</li>
+        </c:forEach>
+    </ul>
+</body>
+</html>

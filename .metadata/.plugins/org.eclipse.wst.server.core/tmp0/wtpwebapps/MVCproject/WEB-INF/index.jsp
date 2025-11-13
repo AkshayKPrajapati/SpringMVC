@@ -73,6 +73,7 @@
     <a href="login">Go to Login Page</a>
     <a href="register">Create a New Account</a>
     <a href="controllerView">Controller And View</a>
+    <a href="modelview">Model View Data</a>
 </section>
 
 <h3>There are some pincodes below:</h3>
