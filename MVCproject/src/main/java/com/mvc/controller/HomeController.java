@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -98,8 +99,6 @@ public class HomeController {
     	// sent the data on view page
     	model.addAttribute("login", login);
     	
-    	
-    	
     	return "loginSucess";
     	
     }
@@ -107,10 +106,13 @@ public class HomeController {
     public String getRegister() {
         return "register";
     }
+    @RequestMapping("/welcome/{number}")
+    public String getwelcome(
+    		@PathVariable("number")int x
+    		){
+    	System.out.println("The Path value is : "+ x);
+        return "welcome";
+    }
     
-    
-    
-    
-    
-    
+     
 }

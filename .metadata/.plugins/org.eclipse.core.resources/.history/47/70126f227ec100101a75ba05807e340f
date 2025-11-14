@@ -1,0 +1,109 @@
+package com.mvc.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.mvc.model.Login;
+import com.mvc.model.Student;
+
+@Controller
+public class HomeController {
+    
+	
+	//Model 
+    @RequestMapping(path="/")
+    public String getIndex(Model model) {
+        model.addAttribute("name", "Geetanjali Ma'am");
+        model.addAttribute("mobile", 6200305994L);
+        model.addAttribute("visitor", 13408);
+        model.addAttribute("studentData", new Student(101, "Akshay", "FISJFS01625"));
+        
+        List<Integer> pincodes = new ArrayList<>();
+        pincodes.add(821654);
+        pincodes.add(821655);
+        pincodes.add(821656);
+        model.addAttribute("pincodes", pincodes);
+        
+        return "index";
+    }
+    
+    
+    
+    //use of modelview
+  /*  @RequestMapping("/modelview")
+    public String getModelView(){
+    	return "modelview";
+    }*/
+    
+    
+    @RequestMapping("/modelview")
+    public ModelAndView getModelViewPage(){
+    	ModelAndView modelAndView=new ModelAndView();
+    	modelAndView.addObject("name","Ajay");
+    	modelAndView.addObject("mobile", 6200305994L);
+    	modelAndView.addObject("studentData", new Student(101, "Akshay", "FISJFS01625"));
+    	modelAndView.addObject("name","Ajay");
+    	 List<Integer> pincodes = new ArrayList<>();
+         pincodes.add(821654);
+         pincodes.add(821655);
+         pincodes.add(821656);
+         modelAndView.addObject("pincodes", pincodes);
+         //which view we want to show 
+         modelAndView.setViewName("modelview");
+         return modelAndView;
+    }
+    
+    
+    
+    //How to send data from view to controller using @RequestParam and @ModelAttribute 
+    @RequestMapping("/login")
+    
+    public String getLogin() {
+        return "login";
+    }
+    
+    
+    
+    /*
+     * Use Request@RequestParam
+     * @RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
+    public String loginSuccess(
+    		@RequestParam("username") String username,
+    		@RequestParam("password") String password
+    		){
+    	System.out.println(" The username is :  "+ username);
+    	System.out.println(" The password is :  "+ password);
+    	return "loginSucess";
+    	
+    }
+    */
+    
+    
+    /*
+     * Using @MethodAttribute
+     * 
+     */
+    @RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
+    public String loginSuccess(@ModelAttribute Login login,Model model){
+    	System.out.println(" The username is :  "+ login.getUsername());
+    	System.out.println(" The password is :  "+ login.getPassword());
+    	
+    	// sent the data on view page
+    	model.addAttribute("login", login);
+    	
+    	return "loginSucess";
+    	
+    }
+    @RequestMapping("/register")
+    public String getRegister() {
+        return "register";
+    }
+     
+}

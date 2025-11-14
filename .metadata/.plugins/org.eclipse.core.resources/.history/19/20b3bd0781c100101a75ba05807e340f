@@ -1,0 +1,151 @@
+<%@ page language="java" contentType="text/html;
+ charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> 
+<%@ page import="com.mvc.model.Student" %> 
+<%@ page import="java.util.List" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Index Page - Fusion Software Institute</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        section a {
+            text-decoration: none;
+            color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #007BFF;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        section a:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .pincode-list {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pincode-list span {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<%
+    String name = (String) request.getAttribute("name");
+    Integer visitor = (Integer) request.getAttribute("visitor");
+    Student student = (Student) request.getAttribute("studentData");
+    Long mobile = (Long) request.getAttribute("mobile");
+    List<Integer> pincodes = (List<Integer>) request.getAttribute("pincodes");
+
+    if (name == null) name = "Instructor";
+    if (visitor == null) visitor = 0;
+    if (mobile == null) mobile = 1234567890L;
+%>
+
+<div class="container">
+    <h1>Welcome to Fusion Software Institute</h1>
+
+    <% if (student != null) { %>
+        <h2>Hello, <%= student.getName() %> | Registration Number: <%= student.getRegisterId() %></h2>
+    <% } else { %>
+        <h2>Welcome, Guest! Please login or register below.</h2>
+    <% } %>
+
+    <section>
+        <a href="login">Go to Login Page</a>
+        <a href="register">Create a New Account</a>
+        <a href="controllerView">Controller And View</a>
+        <a href="modelview">Model View Data</a>
+        <a href="welcome">Go to the Welcome page</a>
+        <a href="about">About Us</a>
+        <a href="contact">Contact Us</a>
+        <a href="services">Our Services</a>
+    </section>
+
+    <div class="pincode-list">
+        <h3>There are some pincodes below:</h3>
+
+        <%
+            if (pincodes != null && !pincodes.isEmpty()) {
+                for (Integer pincode : pincodes) {
+                    out.print("<span>" + pincode + " </span>");
+                }
+            } else {
+                out.print("<span>No pincodes available.</span>");
+            }
+        %>
+    </div>
+</div>
+
+<footer>
+    Class by <%= name %> |
+    Visitor Count: <%= visitor %> |
+    Mobile: <%= mobile %> |
+    Pincode: <%= (pincodes != null && pincodes.size() > 2) ? pincodes.get(2) : "N/A" %>
+</footer>
+
+</body>
+</html>

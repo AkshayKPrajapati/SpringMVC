@@ -1,96 +1,151 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="com.mvc.model.Student" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> 
+<%@ page import="com.mvc.model.Student" %> 
 <%@ page import="java.util.List" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Index Page - Fusion Software Institute</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #cce0ff, #e6f2ff);
-        text-align: center;
-        margin-top: 100px;
-    }
-    h1 {
-        color: #004080;
-        text-shadow: 2px 2px #b3d1ff;
-    }
-    h2 {
-        color: #333;
-        margin-bottom: 30px;
-    }
-    a {
-        display: block;
-        margin: 15px auto;
-        padding: 12px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        width: 250px;
-        border-radius: 8px;
-        transition: 0.3s;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    a:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
-    }
-    footer {
-        margin-top: 60px;
-        font-style: italic;
-        color: #333;
-    }
-</style>
+    <meta charset="ISO-8859-1">
+    <title>Index Page - Fusion Software Institute</title>
+
+    <style>
+        /* GLOBAL STYLES */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* ==== FIXED GRID SECTION ===== */
+        section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);   /* 4 equal columns */
+            gap: 15px 4px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        section a {
+            text-decoration: none;
+            color: #007BFF;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 2px solid #007BFF;
+            font-size: 16px;
+            text-align: center;
+            transition: 0.3s ease;
+            display: inline-block;
+            bottom: 0;
+        }
+
+        section a:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+
+       
+
+        /* PINCODES */
+        .pincode-list {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pincode-list span {
+            font-size: 18px;
+            color: #333;
+            display: inline-block;
+            margin: 5px;
+        }
+
+    </style>
 </head>
+
 <body>
 
 <%
-    // Retrieve data from request attributes safely
     String name = (String) request.getAttribute("name");
     Integer visitor = (Integer) request.getAttribute("visitor");
     Student student = (Student) request.getAttribute("studentData");
     Long mobile = (Long) request.getAttribute("mobile");
     List<Integer> pincodes = (List<Integer>) request.getAttribute("pincodes");
 
-    // Default values if attributes are missing
     if (name == null) name = "Instructor";
     if (visitor == null) visitor = 0;
     if (mobile == null) mobile = 1234567890L;
 %>
 
-<h1>Welcome to Fusion Software Institute</h1>
 
-<% if (student != null) { %>
-    <h2>Hello, <%= student.getName() %> | Registration Number: <%= student.getRegisterId() %></h2>
-<% } else { %>
-    <h2>Welcome, Guest! Please login or register below.</h2>
-<% } %>
 
-<section>
-    <a href="login">Go to Login Page</a>
-    <a href="register">Create a New Account</a>
-    <a href="controllerView">Controller And View</a>
-    <a href="modelview">Model View Data</a>
-</section>
+    <h1>Welcome to Fusion Software Institute</h1>
 
-<h3>There are some pincodes below:</h3>
+    <% if (student != null) { %>
+        <h2>Hello, <%= student.getName() %> | Registration Number: <%= student.getRegisterId() %></h2>
+    <% } else { %>
+        <h2>Welcome, Guest! Please login or register below.</h2>
+    <% } %>
 
-<%
-    if (pincodes != null && !pincodes.isEmpty()) {
-        for (Integer pincode : pincodes) {
-            out.print(pincode + " ");
-        }
-    } else {
-        out.print("No pincodes available.");
-    }
-%>
+    <section>
+        <a href="login">Go to Login Page</a>
+        <a href="register">Create a New Account</a>
+        <a href="controllerView">Controller & View</a>
+        <a href="modelview">Model View Data</a>
+        <a href="about">About Us</a>
+        <a href="contact">Contact Us</a>
+        <a href="services">Our Services</a>
+        <a href="gallery">Gallery</a>
+        <a href="courses">Courses</a>
+        <a href="events">Events</a>
+        <a href="support">Support</a>
+    </section>
+
+    <div class="pincode-list">
+        <h3>There are some pincodes below:</h3>
+
+        <%
+            if (pincodes != null && !pincodes.isEmpty()) {
+                for (Integer pincode : pincodes) {
+                    out.print("<span>" + pincode + "</span>");
+                }
+            } else {
+                out.print("<span>No pincodes available.</span>");
+            }
+        %>
+    </div>
+
 
 <footer>
     Class by <%= name %> |
-    Visitor Count: <%= visitor %> + |
+    Visitor Count: <%= visitor %> |
     Mobile: <%= mobile %> |
     Pincode: <%= (pincodes != null && pincodes.size() > 2) ? pincodes.get(2) : "N/A" %>
 </footer>
