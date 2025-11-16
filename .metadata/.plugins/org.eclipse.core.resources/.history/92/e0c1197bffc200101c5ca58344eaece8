@@ -1,0 +1,14 @@
+package com.mvcormdata.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.mvcormdata.repository.LoginRepository;
+
+@Controller
+public class LoginController {
+	
+	//Controller 
+	@Autowired
+	private LoginRepository loginRepository;
+}

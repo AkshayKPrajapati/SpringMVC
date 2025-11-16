@@ -1,0 +1,7 @@
+package com.mvcormdata.repository;
+
+public class LoginRepository {
+	//communication to the database
+	//auto wired -> hibernaate
+	
+}

@@ -1,0 +1,130 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding - Fusion Software Institute</title>
+
+    <!-- Internal CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0077ff, #6a11cb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            width: 360px;
+            color: #333;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .logo {
+            width: 110px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .features p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 12px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn.start {
+            background: #0077ff;
+            color: #fff;
+        }
+
+        .btn.start:hover {
+            background: #005fcc;
+        }
+
+        .btn.login {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn.login:hover {
+            background: #e1e1e1;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <%-- Example: Dynamic welcome name (optional) --%>
+            <% String trainer = "Geetanjali Ma'am"; %>
+
+            <img src="https://via.placeholder.com/120" alt="Logo" class="logo">
+
+            <h1>Welcome to Fusion Software Institute</h1>
+            <p class="subtitle">Kickstart your journey towards becoming a Full Stack Developer</p>
+            <p style="font-size: 13px; font-weight: bold; margin-bottom: 10px;">Taught By: <%= trainer %></p>
+
+            <div class="features">
+                <p>✔ Learn Java, Spring Boot, React</p>
+                <p>✔ Hands-on Real Projects</p>
+                <p>✔ Job & Interview Guidance</p>
+            </div>
+
+            <form action="register.jsp">
+                <button class="btn start">Get Started</button>
+            </form>
+
+            <form action="login.jsp">
+                <button class="btn login">Already have an account?</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

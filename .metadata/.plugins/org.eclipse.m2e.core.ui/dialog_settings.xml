@@ -56,12 +56,15 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.example.mvcdata"/>
 			<item value="com.example.mvc"/>
 		</list>
 		<list key="groupId">
+			<item value="MVCData"/>
 			<item value="MVCproject"/>
 		</list>
 		<list key="artifactId">
+			<item value="MVCData"/>
 			<item value="MVCproject"/>
 		</list>
 		<list key="projectNameTemplate">

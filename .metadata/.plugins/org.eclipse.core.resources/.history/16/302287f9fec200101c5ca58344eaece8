@@ -1,0 +1,9 @@
+package com.mvcormdata.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class LoginService {
+	//work like a interface
+	//autowired -> repository
+}
