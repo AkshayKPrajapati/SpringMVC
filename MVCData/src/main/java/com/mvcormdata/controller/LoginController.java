@@ -1,7 +1,10 @@
 package com.mvcormdata.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,10 +33,11 @@ public class LoginController {
 	
 	@RequestMapping(path="/loginSuccess",method=RequestMethod.POST)
 	public String getLoginSucess(
-			@ModelAttribute Login login
+			@ModelAttribute Login login,Model model
 			){
 		this.loginService.savaLoginDetails(login);
-		System.out.println(login);
+		List<Login> listOfLogin = this.loginService.getLoginCredentialDetails();
+		model.addAttribute("loginDetails",listOfLogin);
 		return "loginSuccess";
 	}
 }

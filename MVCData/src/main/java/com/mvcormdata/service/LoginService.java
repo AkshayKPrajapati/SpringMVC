@@ -1,5 +1,8 @@
 package com.mvcormdata.service;
 
+import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Service;
@@ -16,5 +19,10 @@ public class LoginService {
 	
 	public void savaLoginDetails(Login login){
 		this.loginRepository.saveLoginCredentials(login);
+	}
+	
+	public List<Login> getLoginCredentialDetails(){
+		List<Login> listOfLogin = this.loginRepository.getAllLoginDetails();
+		return listOfLogin;
 	}
 }
