@@ -1,46 +1,175 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="ISO-8859-1">
+<title>Landing Page</title>
 
-<style >
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-section {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);   /* 4 equal columns */
-            gap: 15px 4px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            padding: 10px;
-        }
+    body {
+        background: #f4f6ff;
+        color: #333;
+    }
 
-        section a {
-            text-decoration: none;
-            color: #007BFF;
-            padding: 12px 15px;
-            border-radius: 5px;
-            border: 2px solid #007BFF;
-            font-size: 16px;
-            text-align: center;
-            transition: 0.3s ease;
-            display: inline-block;
-            bottom: 0;
-        }
+    header {
+        width: 100%;
+        background: #0b5ed7;
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+    }
 
-        section a:hover {
-            background-color: #007BFF;
-            color: white;
-        }
+    header h2 {
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 18px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 120px 20px;
+        background: linear-gradient(to bottom right, #0b5ed7, #003a8c);
+        color: white;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    .hero a {
+        background: #fff;
+        color: #0b5ed7;
+        padding: 12px 28px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .hero a:hover {
+        background: #002f79;
+        color: #fff;
+    }
+
+    .section-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        padding: 60px 40px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: 0.3s;
+        border-top: 5px solid #0b5ed7;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .card p {
+        font-size: 14px;
+        margin-bottom: 15px;
+        color: #555;
+    }
+
+    .card a {
+        text-decoration: none;
+        color: #0b5ed7;
+        font-weight: bold;
+    }
+
+    footer {
+        padding: 18px;
+        text-align: center;
+        background: #0b5ed7;
+        color: white;
+        font-size: 14px;
+        margin-top: 30px;
+    }
 </style>
 </head>
 <body>
-	<a>This is index page</a>
-	<section>
-        <a href="login">Go to Login Page</a>
-        
-    </section>
+
+<header>
+    <h2>My Application</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="login">Login</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Welcome to Our Portal</h1>
+    <p>Your trusted digital solution for management and records</p>
+    <a href="login">Get Started</a>
+</section>
+
+<section class="section-cards">
+    <div class="card">
+        <h3>Login</h3>
+        <p>Access your personal dashboard securely.</p>
+        <a href="login">Go Now →</a>
+    </div>
+
+    <div class="card">
+        <h3>Register</h3>
+        <p>Create a new account and join our system.</p>
+        <a href="#">Register →</a>
+    </div>
+
+    <div class="card">
+        <h3>Support</h3>
+        <p>Need help? Our support team is ready.</p>
+        <a href="#">Contact Us →</a>
+    </div>
+</section>
+
+<footer>
+    © 2025 My Application. All Rights Reserved.
+</footer>
+
 </body>
 </html>
