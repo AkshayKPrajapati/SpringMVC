@@ -56,9 +56,10 @@
 
 <!-- Annotated entity -->
 <property name="annotatedClasses">
-<list>
-<value>com.mvcormdata.entity.Login</value>
-</list>
+	<list>
+		<value>com.mvcormdata.entity.Login</value>
+		<value>com.mvcormdata.entity.Books</value>
+	</list>
 </property>
 </bean>
 
@@ -79,6 +80,9 @@
 <property name="hibernateTemplate" ref="hibernateTemplate"></property>
 </bean>
 
+<bean class="com.mvcormdata.repository.BookRepository" name="bookRepository">
+<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+</bean>
 
 
 

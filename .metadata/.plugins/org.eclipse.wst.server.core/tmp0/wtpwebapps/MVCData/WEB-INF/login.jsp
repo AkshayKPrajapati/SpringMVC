@@ -5,7 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login Page</title>
+
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     body {
         background-color: #f2f2f2;
         font-family: Verdana, sans-serif;
@@ -14,39 +20,74 @@
     }
     h1 {
         color: #333;
+        font-size: 36px;
+        margin-bottom: 30px;
     }
     form {
         background-color: white;
         display: inline-block;
-        padding: 30px;
+        padding: 40px;
         border-radius: 10px;
-        box-shadow: 0 0 10px #aaa;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
     input[type=text], input[type=password] {
         width: 250px;
-        padding: 10px;
+        padding: 12px;
         margin: 10px 0;
         border: 1px solid #ccc;
         border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+    }
+    input[type=text]:focus, input[type=password]:focus {
+        border-color: #007bff;
+        outline: none;
     }
     input[type=submit] {
         background-color: #007bff;
         color: white;
-        padding: 10px 20px;
+        padding: 12px 20px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
     }
     input[type=submit]:hover {
         background-color: #0056b3;
     }
+    p {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    a:hover {
+        color: #0056b3;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        form {
+            width: 80%;
+            padding: 20px;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+        }
+    }
 </style>
+
 </head>
 <body>
     <h1>Login Page</h1>
     <form action="loginSuccess" method="post">
-        <input type="text"  placeholder="Enter Username" name="username" ><br>
-        <input type="password"  placeholder="Enter Password" name="password" ><br><br>
+        <input type="text" placeholder="Enter Username" name="username" required><br>
+        <input type="password" placeholder="Enter Password" name="password" required><br><br>
         <input type="submit" value="Login">
     </form>
     <p>Don't have an account? <a href="register">Register Here</a></p>

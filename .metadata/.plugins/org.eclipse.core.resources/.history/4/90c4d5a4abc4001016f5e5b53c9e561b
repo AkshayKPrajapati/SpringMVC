@@ -1,0 +1,26 @@
+package com.mvcormdata.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.mvcormdata.service.BookService;
+
+@Controller
+public class BookController {
+	
+	private BookService BookService;
+	
+	@Autowired
+	@RequestMapping(path="/book")
+	public String getBook(){
+		return "bookindex";
+	}
+	
+	
+	@RequestMapping(path="/addBook")
+	public String addBook(){
+		return "addBook";
+	}
+	
+}

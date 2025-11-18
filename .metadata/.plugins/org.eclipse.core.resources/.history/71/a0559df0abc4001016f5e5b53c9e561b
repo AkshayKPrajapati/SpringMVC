@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Add Book Page</h1>
+	
+	<form action="bookAddedSuccess" method="post">
+	<input type="text" placeholder="Enter The Book Name" id="bookName" name="bookName" >
+	
+	<input type="text" placeholder="Enter The Book Author" id="bookAuthor" name="bookAuthor" >
+	
+	<input type="text" placeholder="Enter The Book Description" id="bookDescription" name="bookDescription" >
+	<input type="text" placeholder="Enter The Book Price" id="bookPrice" name="bookPrice" >
+	<input type="submit" value="Submit New Records"> 
+	
+	</form>
+</body>
+</html>

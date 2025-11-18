@@ -121,13 +121,62 @@
     }
 
     footer {
-        padding: 18px;
-        text-align: center;
-        background: #0b5ed7;
-        color: white;
-        font-size: 14px;
-        margin-top: 30px;
-    }
+  padding: 30px 20px;
+  background: #0b5ed7;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.footer-sections {
+  display: inline-block;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  display: inline;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #ffd700;
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+  
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-sections {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  footer p {
+    font-size: 13px;
+  }
+
+  .footer-column a {
+    font-size: 13px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -138,6 +187,7 @@
         <a href="#">Home</a>
         <a href="login">Login</a>
         <a href="#">Contact</a>
+        <a href="book">Book</a>
     </nav>
 </header>
 
@@ -151,25 +201,60 @@
     <div class="card">
         <h3>Login</h3>
         <p>Access your personal dashboard securely.</p>
-        <a href="login">Go Now →</a>
+        <a href="login">Go Now </a>
     </div>
 
     <div class="card">
         <h3>Register</h3>
         <p>Create a new account and join our system.</p>
-        <a href="#">Register →</a>
+        <a href="#">Register </a>
     </div>
 
     <div class="card">
         <h3>Support</h3>
         <p>Need help? Our support team is ready.</p>
-        <a href="#">Contact Us →</a>
+        <a href="#">Contact Us </a>
     </div>
 </section>
 
 <footer>
-    © 2025 My Application. All Rights Reserved.
+  <section class="footer-sections">
+    <!-- 1st Column -->
+    <div class="footer-column">
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+    </div>
+
+    <!-- 2nd Column -->
+    <div class="footer-column">
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+    </div>
+
+    <!-- 3rd Column -->
+    <div class="footer-column">
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+    </div>
+
+    <!-- 4th Column -->
+    <div class="footer-column">
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+      <a href="#">Register</a>
+    </div>
+  </section>
+
+  <p>© 2025 My Application. All Rights Reserved.</p>
 </footer>
+
 
 </body>
 </html>
