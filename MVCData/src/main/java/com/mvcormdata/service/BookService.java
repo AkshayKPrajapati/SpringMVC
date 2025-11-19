@@ -31,4 +31,8 @@ public class BookService {
 	public void deleteBook(Books books){
 		this.bookRepository.deleteBooks(books);
 	}
+	public void updateBooks(Books books){
+		this.bookRepository.updateBookDetails(books);
+	}
+	
 }

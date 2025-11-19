@@ -1,0 +1,183 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@ page import="java.util.List"%>
+<%@ page import="com.mvcormdata.entity.Books"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Books List</title>
+
+<!-- INTERNAL CSS -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f6ff;
+    }
+
+    /* HEADER */
+    header {
+        width: 100%;
+        background: #0b5ed7;
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    header h2 {
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 18px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    
+
+    /* TABLE DESIGN */
+    h3 {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        color: #0b5ed7;
+        font-size: 28px;
+    }
+
+    table {
+        width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        margin-top: 20px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        background: white;
+    }
+
+    th {
+        background: #0b5ed7;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    table, th, td {
+        border: none;
+    }
+
+    td, th {
+        padding: 14px 15px;
+        text-align: left;
+        font-size: 15px;
+    }
+
+    /* Zebra effect */
+    tr:nth-child(even) {
+        background-color: #f8f9ff;
+    }
+
+    /* Hover effect */
+    tr:hover {
+        background-color: #ffeaa7 !important;
+        cursor: pointer;
+        transform: scale(1.01);
+        transition: 0.25s ease-in-out;
+    }
+
+    /* MESSAGE */
+    .no-data {
+        text-align: center;
+        margin: 60px;
+        font-size: 20px;
+        color: #666;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <h2>My Application</h2>
+    <nav>
+        <a href="addBook">Add New Book</a>
+        <a href="login">Login</a>
+        <a href="#">Contact</a>
+        <a href="book">Book</a>
+    </nav>
+</header>
+
+
+<%
+    List<Books> listOfBook = (List<Books>) request.getAttribute("booksDetails");
+	String path=request.getContextPath();
+
+    if (listOfBook == null || listOfBook.isEmpty()) {
+%>
+
+    <p class="no-data">No books found.</p>
+
+<%
+    } else {
+%>
+
+<h3>List of Books</h3>
+
+<table>
+    <tr>
+        <th>Book ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+        
+    </tr>
+
+    <%
+        for (Books book : listOfBook) {
+    %>
+
+    <tr>
+        <td><%= book.getBookId() %></td>
+        <td><%= book.getBookName() %></td>
+        <td><%= book.getBookAuthor() %></td>
+        <td><%= book.getBookDescription() %></td>
+        <td><%= book.getBookPrice() %></td>
+        <td><a href="<%=path %>book/update/<%=book.getBookId() %>">Update</a></td>
+        <td>
+        	<a href="<%=path %>/book/delete/<%=book.getBookId() %>">Delete</a>
+       </td>
+    </tr>
+
+    <%
+        }
+    %>
+</table>
+
+<%
+    }
+%>
+
+</body>
+</html>

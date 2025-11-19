@@ -43,4 +43,10 @@ public class BookRepository {
 		this.hibernateTemplate.delete(books);
 		System.out.println("Book Deleted successfully");
 	}
+	
+	@Transactional
+	public void updateBookDetails(Books books){
+		this.hibernateTemplate.update(books);
+		System.out.println("Book updated successfully");
+	}
 }

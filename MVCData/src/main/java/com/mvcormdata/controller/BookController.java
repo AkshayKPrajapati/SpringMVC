@@ -33,20 +33,20 @@ public class BookController {
 	@RequestMapping(path="/bookAddedSuccess",method=RequestMethod.POST)
 	public String getBookAddedSuccess(@ModelAttribute Books books,Model model){
 		this.bookService.newBookStore(books);
-		List<Books> ListOfBook = this.bookService.getAllBookDetails();
-		model.addAttribute("booksDetails",ListOfBook);
+		List<Books> listOfBook = this.bookService.getAllBookDetails();
+		model.addAttribute("booksDetails",listOfBook);
 		return "displayBook";
 	}
 	
 	
 	@RequestMapping(path="/displayBook")
 	public String getAllBook(Model model){
-		List<Books> ListOfBook = this.bookService.getAllBookDetails();
-		model.addAttribute("booksDetails",ListOfBook);
+		List<Books> listOfBook = this.bookService.getAllBookDetails();
+		model.addAttribute("booksDetails",listOfBook);
 		return "displayBook";
 		
 	}
-	@RequestMapping(path="book/delete/{bookId}")
+	@RequestMapping(path="/book/delete/{bookId}")
 	public String deleteById(@PathVariable("bookId") int bookId, Model model){
 		//get Data
 		Books books = this.bookService.getSingleBookById(bookId);
@@ -57,6 +57,28 @@ public class BookController {
 		//display after deleted Book Records
 		List<Books> ListOfBook = this.bookService.getAllBookDetails();
 		model.addAttribute("booksDetails",ListOfBook);
+		return "displayBook";
+	}
+	
+	@RequestMapping(path="/book/update/{bookId}")
+	public String updateByBookId(@PathVariable("bookId") int bookId,Model model){
+		Books book = this.bookService.getSingleBookById(bookId);
+		model.addAttribute("bookDetails", book);
+		return "updateBookForm";
+	}
+	
+	@RequestMapping(path="update/updateSuccess",method=RequestMethod.POST)
+
+	public String showUpdateBook(@ModelAttribute Books books, Model model){
+		
+		this.bookService.updateBooks(books);//update
+		
+		
+		//display
+		List<Books> listOfBook = this.bookService.getAllBookDetails();
+		model.addAttribute("booksDetails",listOfBook);
+		
+		
 		return "displayBook";
 	}
 }
