@@ -1,8 +1,12 @@
 package com.mvcormdata.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,7 +16,7 @@ import com.mvcormdata.service.BookService;
 @Controller
 public class BookController {
 	@Autowired
-	private BookService BookService;
+	private BookService bookService;
 	
 	
 	@RequestMapping(path="/book")
@@ -27,9 +31,32 @@ public class BookController {
 	}
 	
 	@RequestMapping(path="/bookAddedSuccess",method=RequestMethod.POST)
-	public String getBookAddedSuccess(@ModelAttribute Books books){
-		this.BookService.newBookStore(books);
+	public String getBookAddedSuccess(@ModelAttribute Books books,Model model){
+		this.bookService.newBookStore(books);
+		List<Books> ListOfBook = this.bookService.getAllBookDetails();
+		model.addAttribute("booksDetails",ListOfBook);
 		return "displayBook";
 	}
 	
+	
+	@RequestMapping(path="/displayBook")
+	public String getAllBook(Model model){
+		List<Books> ListOfBook = this.bookService.getAllBookDetails();
+		model.addAttribute("booksDetails",ListOfBook);
+		return "displayBook";
+		
+	}
+	@RequestMapping(path="book/delete/{bookId}")
+	public String deleteById(@PathVariable("bookId") int bookId, Model model){
+		//get Data
+		Books books = this.bookService.getSingleBookById(bookId);
+		
+		//delete method
+		this.bookService.deleteBook(books);
+		
+		//display after deleted Book Records
+		List<Books> ListOfBook = this.bookService.getAllBookDetails();
+		model.addAttribute("booksDetails",ListOfBook);
+		return "displayBook";
+	}
 }

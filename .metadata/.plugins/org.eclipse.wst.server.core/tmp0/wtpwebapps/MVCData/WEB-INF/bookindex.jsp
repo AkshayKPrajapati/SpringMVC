@@ -87,9 +87,7 @@
     <h2>My Application</h2>
     <nav>
         <a href="addBook">Add New Book</a>
-        <a href="login">Login</a>
-        <a href="#">Contact</a>
-        <a href="book">Book</a>
+        <a href="displayBook">See All Book</a>
     </nav>
 </header>
 <section class="hero">
