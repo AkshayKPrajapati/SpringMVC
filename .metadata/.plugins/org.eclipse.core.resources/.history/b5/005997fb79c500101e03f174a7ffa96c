@@ -164,9 +164,9 @@
         <td><%= book.getBookAuthor() %></td>
         <td><%= book.getBookDescription() %></td>
         <td><%= book.getBookPrice() %></td>
-        <td><a href="<%=path %>/book/update/bookId=<%=book.getBookId() %>">Update</a></td>
+        <td><a href="<%=path %>/student/update/bookId=<%=book.getBookId() %>">Update</a></td>
         <td>
-        	<a href="<%=path %>/book/delete/bookId=<%=book.getBookId() %>">Delete</a>
+        	<a href="<%=path %>/student/delete/bookId=<%=book.getBookId() %>">Delete</a>
        </td>
     </tr>
 

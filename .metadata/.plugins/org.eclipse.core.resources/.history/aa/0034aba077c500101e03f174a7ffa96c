@@ -17,7 +17,7 @@
     <h2>Update Book Details</h2>
 </center>
 
-<form action="../updateSuccess" method="post">
+<form action="/updateSuccess" method="post">
 
     <input type="text" name="bookId" value="<%= book.getBookId() %>" readonly="true">
 

@@ -46,7 +46,7 @@ public class BookController {
 		return "displayBook";
 		
 	}
-	@RequestMapping(path="/book/delete/bookId={bookId}")
+	@RequestMapping(path="/student/delete/bookId={bookId}")
 	public String deleteById(@PathVariable("bookId") int bookId, Model model){
 		//get Data
 		Books books = this.bookService.getSingleBookById(bookId);
@@ -60,14 +60,14 @@ public class BookController {
 		return "displayBook";
 	}
 	
-	@RequestMapping(path="/book/update/bookId={bookId}")
+	@RequestMapping(path="/student/update/bookId={bookId}")
 	public String updateByBookId(@PathVariable("bookId") int bookId,Model model){
 		Books book = this.bookService.getSingleBookById(bookId);
 		model.addAttribute("bookDetails", book);
 		return "updateBookForm";
 	}
 	
-	@RequestMapping(path="/book/updateSuccess", method=RequestMethod.POST)
+	@RequestMapping(path="/student/updateSuccess", method=RequestMethod.POST)
 	public String showUpdateBook(@ModelAttribute Books books, Model model) {
 	    this.bookService.updateBooks(books);
 	    List<Books> listOfBook = this.bookService.getAllBookDetails();

@@ -17,9 +17,9 @@
     <h2>Update Book Details</h2>
 </center>
 
-<form action="../updateSuccess" method="post">
+<form action="update/book/updateSuccess" method="post">
 
-    <input type="text" name="bookId" value="<%= book.getBookId() %>" readonly="true">
+    <input type="text" name="bookId" value="<%= book.getBookId() %>" readonly>
 
     <input type="text" name="bookName" value="<%= book.getBookName() %>" required>
 
