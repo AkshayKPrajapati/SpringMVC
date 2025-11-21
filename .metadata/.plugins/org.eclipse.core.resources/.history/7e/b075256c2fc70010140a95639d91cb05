@@ -9,34 +9,21 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String getIndex(){
-		int x=Integer.parseInt("ten");		
 		System.out.println(0/0);
-		String s=null;
-		System.out.println(s.length());
 		return "index";
 	}
 	
 	
-	//1 : Specific Handling Exception Method
+	
 	// ArithmeticException Exception Handling
-	/*@ExceptionHandler(value=ArithmeticException.class)
+	@ExceptionHandler(value=ArithmeticException.class)
 	public String handlingArithmeticException(){
-		return "arithmetric";
-	}*/
-	
-	//Exception Null
-	/*@ExceptionHandler(value=NullPointerException.class)
-	public String handlingNullPointerException(){
-		return "arithmetric";
-	}*/
-	
-	
-	/*
-	 * 2 . Generalize Handler Exception
-	 */
-	@ExceptionHandler(value=Exception.class)
-	public String handlingException(){
 		return "arithmetric";
 	}
 	
+	//Exception Null
+	@ExceptionHandler(value=NullPointerException.class)
+	public String handlingNullPointerException(){
+		return "arithmetric";
+	}
 }
