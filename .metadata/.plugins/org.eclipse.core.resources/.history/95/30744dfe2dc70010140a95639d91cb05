@@ -15,15 +15,9 @@ public class HomeController {
 	
 	
 	
-	// ArithmeticException Exception Handling
+	// Exception Handling
 	@ExceptionHandler(value=ArithmeticException.class)
 	public String handlingArithmeticException(){
-		return "arithmetric";
-	}
-	
-	//Exception Null
-	@ExceptionHandler(value=NullPointerException.class)
-	public String handlingNullPointerException(){
 		return "arithmetric";
 	}
 }
