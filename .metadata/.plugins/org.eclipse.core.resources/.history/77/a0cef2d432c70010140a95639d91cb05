@@ -29,7 +29,7 @@ public class HandlerAllExceptions {
 		 */
 		@ExceptionHandler(value=Exception.class)
 		public String handlingException(Model model){
-			model.addAttribute("msg","other exception occured !");
+			model.addAttribute("msg","NullPointer exception occured !");
 			return "error";
 		}
 	

@@ -1,0 +1,14 @@
+package com.mvcexception.controller;
+
+
+
+import org.springframework.stereotype.Controller;
+
+@Controller("/student")
+public class StrudentController {
+	
+	public String getStudent(){
+		return "student";
+	}
+
+}

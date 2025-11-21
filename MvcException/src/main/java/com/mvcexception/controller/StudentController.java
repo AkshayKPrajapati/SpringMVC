@@ -1,0 +1,15 @@
+package com.mvcexception.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/student")   // <-- @Controller does NOT take a path
+public class StudentController {
+
+    @RequestMapping("/")
+    public String getStudent() {
+    	
+        return "student";   // returns view name
+    }
+}
