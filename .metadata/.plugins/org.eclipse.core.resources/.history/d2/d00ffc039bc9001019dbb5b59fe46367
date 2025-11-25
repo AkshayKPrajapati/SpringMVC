@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+</head>
+<body>
+
+<form action="registerSuccess" method="post">
+
+<input type="text" id="firstName" name="firstName" placeholder="Enter your First Name"><br>
+<input type="text" id="lastName" name="lastName" placeholder="Enter your Last Name"><br>
+
+<label>Gender:</label><br>
+<input type="radio" name="gender" value="male">Male<br>
+<input type="radio" name="gender" value="female">Female<br>
+<input type="radio" name="gender" value="other">Other<br>
+
+<input type="checkbox" name="confirmation" value="agreed">I confirm the terms<br>
+
+<select name="city">
+<option value="Nashik">Nashik</option>
+<option value="Pune">Pune</option>
+<option value="Nagpur">Nagpur</option>
+<option value="Mumbai">Mumbai</option>
+<option value="Indore">Indore</option>
+</select><br>
+
+<label>Hobbies:</label><br>
+<input type="checkbox" name="hobbies" value="cricket">Cricket<br>
+<input type="checkbox" name="hobbies" value="video_game">Video Game<br>
+<input type="checkbox" name="hobbies" value="badminton">Badminton<br>
+<input type="checkbox" name="hobbies" value="football">Football<br>
+
+<textarea rows="4" cols="20" name="about" placeholder="Enter Something About You"></textarea><br>
+
+Date of birth: <input type="date" name="dob"><br><br>
+
+<strong>Present Address:</strong><br>
+<input type="text" name="presentAddress" placeholder="Present Address"><br>
+
+<strong>Permanent Address:</strong><br>
+<input type="text" name="permanentAddress" placeholder="Permanent Address"><br><br>
+
+<input type="submit" value="Register">
+
+</form>
+
+</body>
+</html>

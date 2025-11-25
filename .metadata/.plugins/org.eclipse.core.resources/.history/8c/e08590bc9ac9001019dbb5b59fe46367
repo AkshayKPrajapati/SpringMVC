@@ -1,0 +1,16 @@
+package com.mvcexception.entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Register {
+	private String firstName;
+	private String lastName;
+	private String male;
+	private String confirmation;
+	private String city;
+	private List<String> hobbies;
+	private String date;
+}

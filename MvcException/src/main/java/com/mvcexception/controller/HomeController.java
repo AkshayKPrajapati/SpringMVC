@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping(path="/admin")
 public class HomeController {
 	
 	@RequestMapping("/")
@@ -14,6 +15,13 @@ public class HomeController {
 		String s=null;
 		System.out.println(s.length());
 		return "index";
+	}
+	
+	
+	
+	@RequestMapping(path="/register")
+	public String getRegister(){
+		return "register";
 	}
 	
 	

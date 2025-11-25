@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/student")   // <-- @Controller does NOT take a path
+@RequestMapping("/student")   
 public class StudentController {
 
     @RequestMapping("/")
     public String getStudent() {
     	
-        return "student";   // returns view name
+        return "student";   
     }
 }

@@ -1,0 +1,5 @@
+package com.mvcexception.entity;
+
+public class Register {
+
+}

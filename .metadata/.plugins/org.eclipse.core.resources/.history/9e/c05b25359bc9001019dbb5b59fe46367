@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        width: 350px;
+        margin: 40px auto;
+        padding: 20px 30px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.15);
+    }
+
+    form input[type="text"],
+    form input[type="date"],
+    form select,
+    form textarea {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-right: 6px;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        background: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background: #45a049;
+    }
+</style>
+
+</head>
+<body>
+
+<form action="registerSuccess" method="post">
+
+<input type="text" id="firstName" name="firstName" placeholder="Enter your First Name"><br>
+<input type="text" id="lastName" name="lastName" placeholder="Enter your Last Name"><br>
+
+<label>Gender:</label>
+<input type="radio" name="gender" value="male">Male<br>
+<input type="radio" name="gender" value="female">Female<br>
+<input type="radio" name="gender" value="other">Other<br>
+
+<input type="checkbox" name="confirmation" value="agreed">I confirm the terms<br>
+
+<label>City:</label>
+<select name="city">
+<option value="Nashik">Nashik</option>
+<option value="Pune">Pune</option>
+<option value="Nagpur">Nagpur</option>
+<option value="Mumbai">Mumbai</option>
+<option value="Indore">Indore</option>
+</select>
+
+<label>Hobbies:</label>
+<input type="checkbox" name="hobbies" value="cricket">Cricket<br>
+<input type="checkbox" name="hobbies" value="video_game">Video Game<br>
+<input type="checkbox" name="hobbies" value="badminton">Badminton<br>
+<input type="checkbox" name="hobbies" value="football">Football<br>
+
+<textarea rows="4" cols="20" name="about" placeholder="Enter Something About You"></textarea>
+
+<label>Date of birth:</label>
+<input type="datetime-local" name="dob">
+
+<label>Present Address:</label>
+<input type="text" name="presentAddress" placeholder="Present Address">
+
+<label>Permanent Address:</label>
+<input type="text" name="permanentAddress" placeholder="Permanent Address">
+
+<input type="submit" value="Register">
+
+</form>
+
+</body>
+</html>
