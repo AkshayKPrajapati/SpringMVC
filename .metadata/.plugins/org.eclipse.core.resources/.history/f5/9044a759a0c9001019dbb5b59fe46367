@@ -4,11 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/student")   
-public class StudentController {
-
-    @RequestMapping("/")
-    public String getStudent() {
-        return "student";   
-    }
+public class UIController {
+	@RequestMapping(path="/index")
+	public String getIndex(){
+		return "index";
+	}
+	
 }

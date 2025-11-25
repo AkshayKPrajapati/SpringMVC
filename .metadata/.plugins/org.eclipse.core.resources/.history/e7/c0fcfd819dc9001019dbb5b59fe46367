@@ -9,6 +9,7 @@ public class StudentController {
 
     @RequestMapping("/")
     public String getStudent() {
+    	
         return "student";   
     }
 }
