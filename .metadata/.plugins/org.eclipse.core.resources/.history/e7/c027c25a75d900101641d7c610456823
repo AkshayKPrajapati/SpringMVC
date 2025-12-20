@@ -1,0 +1,11 @@
+package com.mvcupload.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.mvcupload.service.FileUploadService;
+
+@Controller
+public class FileUploadController {
+
+	private FileUploadService fileUploadService;
+}

@@ -56,6 +56,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.example.MvcUpload"/>
 			<item value="com.www.mvcupload"/>
 			<item value="com.example.mvcexception"/>
 			<item value="com.example.mvcdata"/>
