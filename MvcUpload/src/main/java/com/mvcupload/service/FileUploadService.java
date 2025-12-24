@@ -23,4 +23,9 @@ public class FileUploadService {
 		List<FileInfo> files = this.fileUploadRepository.getAllFile();
 		return files;
 	}
+	
+	public  FileInfo getSingleFile(int id ){
+		FileInfo fileInfo	 = this.fileUploadRepository.getSingleFile(id);
+		return fileInfo;
+	};
 }

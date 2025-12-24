@@ -39,5 +39,9 @@ public class FileUploadRepository {
 		return files;
 	}
 	
-	
+	public FileInfo getSingleFile(int id )
+	{
+		FileInfo singleFile = this.hibernateTemplate.get(FileInfo.class, id);
+		return singleFile;
+	}
 }

@@ -66,8 +66,14 @@ public class FileUploadController {
        fileInfo.setFileName(fileName);
        fileInfo.setFilePath(uploadDir);
        
-       this.fileUploadService.saveFile(fileInfo);
-       System.out.println("File is : "+fileInfo);
+       
+       
+       if(!(fileInfo==null)){
+    	   this.fileUploadService.saveFile(fileInfo);
+    	   System.out.println("File is : "+fileInfo);
+       }
+      
+      
        
        //3 . get all files info 
        List<FileInfo> files = this.fileUploadService.getFiles();

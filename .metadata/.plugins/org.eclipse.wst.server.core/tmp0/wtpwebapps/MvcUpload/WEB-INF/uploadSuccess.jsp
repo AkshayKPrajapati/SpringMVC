@@ -26,6 +26,7 @@
         <th>File ID</th>
         <th>File Name</th>
         <th>File Path</th>
+        <th>Download File</th>
     </tr>
 
     <% for (FileInfo file : files) { %>
@@ -33,6 +34,7 @@
             <td><%= file.getId() %></td>
             <td><%= file.getFileName() %></td>
             <td><%= file.getFilePath() %></td>
+            <td><a href="download?fileId=<%= file.getId() %>">Download</a></td>
         </tr>
     <% } %>
 </table>
