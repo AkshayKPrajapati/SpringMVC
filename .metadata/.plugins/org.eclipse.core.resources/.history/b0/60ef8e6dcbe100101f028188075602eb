@@ -116,48 +116,13 @@ public class FileUploadController {
             @RequestParam("fileId") int id,
             HttpServletResponse response) throws IOException {
 
-        System.out.println("Download request received. fileId = " + id);
-
+        // get file info from DB
         FileInfo fileInfo = fileUploadService.getSingleFile(id);
-        System.out.println("FileInfo from DB = " + fileInfo);
 
-        if (fileInfo == null) {
-            System.out.println("ERROR: FileInfo is null");
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "File record not found");
-            return;
-        }
-
-        if (fileInfo.getFilePath() == null) {
-            System.out.println("ERROR: filePath is null in DB");
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "File path not found");
-            return;
-        }
-
-        String realPath = context.getRealPath("/");
-        System.out.println("Real Path = " + realPath);
-
-        if (realPath == null) {
-            System.out.println("ERROR: context.getRealPath() returned null");
-            response.sendError(
-                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-                    "Server path not available"
-            );
-            return;
-        }
-
-        String fullFilePath = realPath + fileInfo.getFilePath();
-        System.out.println("Full File Path = " + fullFilePath);
-
+        String fullFilePath = context.getRealPath("/" + fileInfo.getFilePath());
         File file = new File(fullFilePath);
 
-        if (!file.exists()) {
-            System.out.println("ERROR: File does not exist at path");
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "File does not exist");
-            return;
-        }
-
-        System.out.println("File found. Size = " + file.length() + " bytes");
-
+        // set response headers
         response.setContentType("application/octet-stream");
         response.setHeader(
                 "Content-Disposition",
@@ -165,12 +130,12 @@ public class FileUploadController {
         );
         response.setContentLengthLong(file.length());
 
+        // copy file to response
         Files.copy(file.toPath(), response.getOutputStream());
         response.getOutputStream().flush();
 
-        System.out.println("Download completed successfully for fileId = " + id);
+        System.out.println("Downloaded file id: " + id);
     }
-
 
 }
 
