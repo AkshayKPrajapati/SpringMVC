@@ -1,5 +1,7 @@
 package com.mvcupload.entity;
 
+import java.nio.file.Path;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -44,6 +46,7 @@ public class FileInfo {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 	
 	

@@ -2,10 +2,13 @@ package com.mvcupload.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +40,9 @@ public class FileUploadController {
     public String getFile(){
     	return "uploadFile";
     }
+    
+    
+    
     @RequestMapping(value = "/uploadSuccess", method = RequestMethod.POST)
     public String getUpload(@RequestParam("file") CommonsMultipartFile file,
     		Model model
@@ -80,4 +86,27 @@ public class FileUploadController {
        model.addAttribute("fileData",files);
         return "uploadSuccess";
     }
+    
+    @RequestMapping(value = "/uploadHomeSuccess")
+    public String homeUploaded(Model model){
+    	 List<FileInfo> files = this.fileUploadService.getFiles();
+         model.addAttribute("fileData",files);
+          return "uploadSuccess";
+    }
+    
+    @RequestMapping(path="/download?fileId={id}/files")
+    public void getDownloadFile(@RequestParam("id") int id ,HttpServletResponse response) throws IOException{
+    	//get single file info
+    	System.out.println("download "+id);
+    	FileInfo fileInfo = this.fileUploadService.getSingleFile(id);
+    	String fullFilePath = context.getRealPath("files"+fileInfo.getFilePath());
+    	File file=new File(fullFilePath);
+    	//copy 
+    	Files.copy(file.toPath(),response.getOutputStream());//what is flash method(interview question)
+    	
+    	response.getOutputStream().flush();
+    	System.out.println("download "+id);
+    	
+    }
 }
+

@@ -8,6 +8,8 @@
 </head>
 <body>
 This is index page <br>
-<a href="file">click here to upload file</a>
+<a href="file">click here to upload file</a><br><br>
+
+<a href ="uploadHomeSuccess">uploaded fileTable</a>
 </body>
 </html>
