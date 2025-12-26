@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@ page import="java.util.List" %>
+<%@ page import="com.mvcupload.entity.FileInfo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>File Upload Result</title>
+</head>
+
+<body>
+<h1>Successfully uploaded file</h1>
+
+<%
+    List<FileInfo> files = (List<FileInfo>) request.getAttribute("fileData");
+%>
+
+<table border="1">
+    <caption>File Uploaded</caption>
+    <tr>
+        <th>File ID</th>
+        <th>File Name</th>
+        <th>File Path</th>
+        <th>Download File</th>
+    </tr>
+
+    <% for (FileInfo file : files) { %>
+        <tr>
+            <td><%= file.getId() %></td>
+            <td><%= file.getFileName() %></td>
+            <td><%= file.getFilePath() %></td>
+            <td><a href="download/=<%= file.getId() %>">Download</a></td>
+        </tr>
+    <% } %>
+</table>
+
+</body>
+</html>

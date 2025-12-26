@@ -12,14 +12,11 @@ import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.servlet.function.ServerResponse.Context;
-
 import com.mvcupload.entity.FileInfo;
 import com.mvcupload.service.FileUploadService;
 
@@ -111,65 +108,19 @@ public class FileUploadController {
     }*/
     
     
-    @GetMapping("/download")
-    public void getDownloadFile(
-            @RequestParam("fileId") int id,
-            HttpServletResponse response) throws IOException {
-
-        System.out.println("Download request received. fileId = " + id);
-
-        FileInfo fileInfo = fileUploadService.getSingleFile(id);
-        System.out.println("FileInfo from DB = " + fileInfo);
-
-        if (fileInfo == null) {
-            System.out.println("ERROR: FileInfo is null");
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "File record not found");
-            return;
-        }
-
-        if (fileInfo.getFilePath() == null) {
-            System.out.println("ERROR: filePath is null in DB");
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "File path not found");
-            return;
-        }
-
-        String realPath = context.getRealPath("/");
-        System.out.println("Real Path = " + realPath);
-
-        if (realPath == null) {
-            System.out.println("ERROR: context.getRealPath() returned null");
-            response.sendError(
-                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-                    "Server path not available"
-            );
-            return;
-        }
-
-        String fullFilePath = realPath + fileInfo.getFilePath();
-        System.out.println("Full File Path = " + fullFilePath);
-
-        File file = new File(fullFilePath);
-
-        if (!file.exists()) {
-            System.out.println("ERROR: File does not exist at path");
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "File does not exist");
-            return;
-        }
-
-        System.out.println("File found. Size = " + file.length() + " bytes");
-
-        response.setContentType("application/octet-stream");
-        response.setHeader(
-                "Content-Disposition",
-                "attachment; filename=\"" + file.getName() + "\""
-        );
-        response.setContentLengthLong(file.length());
-
-        Files.copy(file.toPath(), response.getOutputStream());
-        response.getOutputStream().flush();
-
-        System.out.println("Download completed successfully for fileId = " + id);
-    }
+    @RequestMapping("/download/{id}")
+	public void downloadTheFile(@PathVariable("id") int id , HttpServletResponse response) throws IOException{
+		//get the file ofprovided id
+    	 System.out.println("Id "+id);
+    	 FileInfo fileInfo = this.fileUploadService.getSingleFile(id);	
+    	String fulFilePath = context.getRealPath("/uploadFile/"+fileInfo.getFileName());
+    	
+    	File f= new File(fulFilePath);
+    	Files.copy(f.toPath(), response.getOutputStream());
+    	response.getOutputStream().flush();
+    	
+    	 
+	}
 
 
 }

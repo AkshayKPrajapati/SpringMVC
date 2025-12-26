@@ -34,7 +34,7 @@
             <td><%= file.getId() %></td>
             <td><%= file.getFileName() %></td>
             <td><%= file.getFilePath() %></td>
-            <td><a href="download?fileId=<%= file.getId() %>">Download</a></td>
+            <td><a href="download/<%= file.getId() %>">Download</a></td>
         </tr>
     <% } %>
 </table>

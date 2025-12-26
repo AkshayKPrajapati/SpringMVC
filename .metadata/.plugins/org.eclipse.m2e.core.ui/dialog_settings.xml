@@ -44,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Code\SpringMVC\MvcUpload"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -56,23 +57,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.example.MvcUpload"/>
-			<item value="com.www.mvcupload"/>
-			<item value="com.example.mvcexception"/>
-			<item value="com.example.mvcdata"/>
-			<item value="com.example.mvc"/>
 		</list>
 		<list key="groupId">
-			<item value="MvcUpload"/>
-			<item value="MvcException"/>
-			<item value="MVCData"/>
-			<item value="MVCproject"/>
 		</list>
 		<list key="artifactId">
-			<item value="MvcUpload"/>
-			<item value="MvcException"/>
-			<item value="MVCData"/>
-			<item value="MVCproject"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
