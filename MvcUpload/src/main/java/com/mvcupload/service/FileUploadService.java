@@ -25,7 +25,7 @@ public class FileUploadService {
 	}
 	
 	public  FileInfo getSingleFile(int id ){
-		FileInfo fileInfo	 = this.fileUploadRepository.getSingleFile(id);
+		 FileInfo fileInfo = this.fileUploadRepository.getSingleFile(id);
 		return fileInfo;
-	};
+	}
 }

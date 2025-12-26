@@ -12,8 +12,8 @@
 <h2>Upload The File</h2>
 
 <form action="uploadSuccess" method="post" enctype="multipart/form-data">
-    <label>Upload the file</label>
-    <input type="file" name="file" required><br><br>
+    <label for="file">Upload the file</label>
+    <input type="file" id="file" name="file" required><br><br>
     <button type="submit">Upload File</button>
 </form>
 

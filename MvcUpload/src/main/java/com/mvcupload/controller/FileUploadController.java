@@ -63,7 +63,7 @@ public class FileUploadController {
         String fileName = file.getOriginalFilename();
         File serverFile = new File(dir,fileName);
         file.transferTo(serverFile);
-        System.out.println(uploadDir);
+       // System.out.println(uploadDir);
         
 		//2 . save to the Database
        FileInfo  fileInfo= new FileInfo();
