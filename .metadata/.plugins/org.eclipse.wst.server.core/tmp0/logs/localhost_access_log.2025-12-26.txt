@@ -113,3 +113,7 @@
 0:0:0:0:0:0:0:1 - - [26/Dec/2025:22:08:01 +0530] "GET /MvcUpload/file HTTP/1.1" 200 404
 0:0:0:0:0:0:0:1 - - [26/Dec/2025:22:08:11 +0530] "POST /MvcUpload/uploadSuccess HTTP/1.1" 200 3112
 0:0:0:0:0:0:0:1 - - [26/Dec/2025:22:08:12 +0530] "GET /MvcUpload/download?id=9 HTTP/1.1" 200 109679
+127.0.0.1 - - [26/Dec/2025:22:09:48 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [26/Dec/2025:22:09:56 +0530] "GET /MvcUpload/ HTTP/1.1" 200 397
+0:0:0:0:0:0:0:1 - - [26/Dec/2025:22:10:00 +0530] "GET /MvcUpload/uploadHomeSuccess HTTP/1.1" 200 3085
+0:0:0:0:0:0:0:1 - - [26/Dec/2025:22:10:02 +0530] "GET /MvcUpload/download/9 HTTP/1.1" 200 109679
