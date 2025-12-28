@@ -22,9 +22,12 @@
         <property name="prefix" value="/WEB-INF/" />
         <property name="suffix" value=".jsp" />
     </bean>
-
-
-
-
+    
+<mvc:interceptors>
+    <mvc:interceptor>
+        <mvc:mapping path="/getRole"/>
+        <bean class="com.example.interceptor.MyInterceptor"/>
+    </mvc:interceptor>
+</mvc:interceptors>
 
 </beans>

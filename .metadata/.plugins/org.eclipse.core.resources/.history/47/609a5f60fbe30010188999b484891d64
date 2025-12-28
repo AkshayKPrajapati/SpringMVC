@@ -1,0 +1,33 @@
+package com.example.interceptor;
+
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.HandlerInterceptor;
+
+public class MyInterceptor implements HandlerInterceptor{
+	
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("This is prehandler");
+		String role = request.getParameter("role");
+		
+		if(role.equals("admin")){
+			return true;
+		}
+		else{
+			response.setContentType("text/html");
+			PrintWriter pw = response.getWriter();
+			pw.print("Not authorized for this handler");
+			return true;
+		}
+		
+	}
+	
+	
+	
+
+}

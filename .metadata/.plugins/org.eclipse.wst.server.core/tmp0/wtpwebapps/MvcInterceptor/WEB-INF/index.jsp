@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-heree , this is the index page 
+<a href="form">Go the form page</a>
 </body>
 </html>

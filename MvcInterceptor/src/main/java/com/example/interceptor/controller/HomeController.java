@@ -1,0 +1,27 @@
+package com.example.interceptor.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class HomeController {
+	
+	@RequestMapping(path="/")
+	public String getIndexPage(){
+		return "index";
+	}
+
+	
+	@RequestMapping(path="/form")
+	public String getFormPage(){
+		return "form";
+	}
+	
+	
+	@RequestMapping(path="/getRole",method=RequestMethod.POST)
+	public String getRoleSuccess(){
+		return "getSuccess";
+	}
+	
+}
