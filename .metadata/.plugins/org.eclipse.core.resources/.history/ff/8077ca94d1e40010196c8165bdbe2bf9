@@ -1,0 +1,12 @@
+package com.example.aop.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+
+@Aspect
+public class MyAspect{
+	
+	//before payment 
+	public void beforePayment(){
+		System.out.println("Authention Starting...........");
+	}
+}

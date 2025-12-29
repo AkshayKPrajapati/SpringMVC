@@ -1,13 +1,23 @@
 package com.example.aop;
 
-/**
- * Hello world!
- *
- */
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.example.aop.service.Payment;
+import com.example.aop.service.PaymentService;
+
+
 public class App 
 {
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
+        @SuppressWarnings("resource")
+		ApplicationContext applicationContext=new ClassPathXmlApplicationContext("config.xml");
+        Payment  paymentService=(Payment) applicationContext.getBean("ps");
+        
+       //external service->
+        paymentService.payment();
+      //external service->
     }
 }

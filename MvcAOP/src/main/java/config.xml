@@ -14,6 +14,8 @@
           http://www.springframework.org/schema/aop/spring-aop.xsd">
 
    
-<bean class="com.example.aop.service.PaymentService"></bean>
-
+<bean class="com.example.aop.service.PaymentService" id="ps"></bean>
+<aop:aspectj-autoproxy/>
+	
+<bean id="myAspect" class="com.example.aop.aspect.MyAspect"></bean>
 </beans>

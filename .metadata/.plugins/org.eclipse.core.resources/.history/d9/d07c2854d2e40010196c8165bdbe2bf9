@@ -1,0 +1,21 @@
+package com.example.aop.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+@Aspect
+public class MyAspect{
+	
+	
+	//advice
+	
+	//cross - cutting logic
+	
+	//before payment 
+	@Before("exeuction *com.example.aop.service.PaymentService")
+	public void beforePayment() throws InterruptedException{
+		System.out.println("Authention Starting...........");
+		Thread.sleep(5000);
+		System.out.println("Payment Started");
+	}
+}
